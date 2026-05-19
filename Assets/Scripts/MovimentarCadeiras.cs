@@ -10,6 +10,7 @@ public class MovimentarCadeiras : MonoBehaviour
 
 	[Header("Configurações de Movimento")]
 	[SerializeField] private float distancia = 1f;
+	[SerializeField] private Vector3 eixoMovimento = Vector3.right;
 
 	private Transform cadeirasEsquerda;
 	private Transform cadeirasDireita;
@@ -38,16 +39,8 @@ public class MovimentarCadeiras : MonoBehaviour
 	{
 		yield return new WaitForSeconds(delayInicio);
 
-		Vector3 direcaoEsquerda = cadeirasEsquerda.right;
-		direcaoEsquerda.y = 0;
-		direcaoEsquerda.Normalize();
-
-		Vector3 direcaoDireita = cadeirasDireita.right;
-		direcaoDireita.y = 0;
-		direcaoDireita.Normalize();
-
-		Vector3 destinoEsquerda = posOriginalEsquerda - direcaoEsquerda * distancia;
-		Vector3 destinoDireita = posOriginalDireita + direcaoDireita * distancia;
+		Vector3 destinoEsquerda = posOriginalEsquerda - eixoMovimento * distancia;
+		Vector3 destinoDireita = posOriginalDireita + eixoMovimento * distancia;
 
 		while (true)
 		{
