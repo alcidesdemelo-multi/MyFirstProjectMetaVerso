@@ -38,8 +38,16 @@ public class MovimentarCadeiras : MonoBehaviour
 	{
 		yield return new WaitForSeconds(delayInicio);
 
-		Vector3 destinoEsquerda = posOriginalEsquerda - cadeirasEsquerda.right * distancia;
-		Vector3 destinoDireita = posOriginalDireita + cadeirasDireita.right * distancia;
+		Vector3 direcaoEsquerda = cadeirasEsquerda.right;
+		direcaoEsquerda.y = 0;
+		direcaoEsquerda.Normalize();
+
+		Vector3 direcaoDireita = cadeirasDireita.right;
+		direcaoDireita.y = 0;
+		direcaoDireita.Normalize();
+
+		Vector3 destinoEsquerda = posOriginalEsquerda - direcaoEsquerda * distancia;
+		Vector3 destinoDireita = posOriginalDireita + direcaoDireita * distancia;
 
 		while (true)
 		{
