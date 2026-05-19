@@ -18,8 +18,6 @@ O projeto foi configurado para VR com:
 - **Meta XR All-in-One SDK** (pacote "guarda-chuva" que agrega os SDKs Meta mais recentes).
 - **XR Plug-in Management** (framework do Unity para habilitar providers XR por plataforma, ex.: Android). A configuração "Android → Oculus" (ou equivalente) fica centralizada aqui.
 
-> **Observação prática:** a Meta recomenda OpenXR como backend padrão em Quest e o "Oculus XR Plugin"/packages relacionados como base para rodar no headset, dependendo do setup/versão do projeto.
-
 ## 🤖 Build alvo (Android / Meta Quest)
 
 - Plataforma alvo: Android (ou perfil Meta Quest quando disponível no Unity 6.x).
