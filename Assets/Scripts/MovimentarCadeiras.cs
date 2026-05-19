@@ -38,14 +38,11 @@ public class MovimentarCadeiras : MonoBehaviour
 	{
 		yield return new WaitForSeconds(delayInicio);
 
-		// ✅ Usa o eixo local do objeto para garantir esquerda/direita corretos
 		Vector3 destinoEsquerda = posOriginalEsquerda - cadeirasEsquerda.right * distancia;
 		Vector3 destinoDireita = posOriginalDireita + cadeirasDireita.right * distancia;
 
-		// ✅ Loop infinito
 		while (true)
 		{
-			// Abre (afasta as cadeiras)
 			yield return StartCoroutine(MoverDois(
 				cadeirasEsquerda, posOriginalEsquerda, destinoEsquerda,
 				cadeirasDireita, posOriginalDireita, destinoDireita,
@@ -53,7 +50,6 @@ public class MovimentarCadeiras : MonoBehaviour
 
 			yield return new WaitForSeconds(tempoAberto);
 
-			// Fecha (retorna à posição original)
 			yield return StartCoroutine(MoverDois(
 				cadeirasEsquerda, destinoEsquerda, posOriginalEsquerda,
 				cadeirasDireita, destinoDireita, posOriginalDireita,
